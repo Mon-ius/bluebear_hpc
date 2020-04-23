@@ -1,0 +1,26 @@
+# =============================================================== #
+#
+# 
+# PERSONAL $HOME/.ssh/config FILE for OpenSSH_7.4+ on BlueBear HPC
+# By Mon-ius(https://github.com/Mon-ius)
+# Last modified: Thu April 23 14:04:47  2020
+#
+# append the content manually or run the one click script.
+#
+#
+# =============================================================== #
+
+Host bham 
+    User jduan 
+    Hostname tinky-winky.cs.bham.ac.uk 
+    Port 22 
+Host bb 
+    User jduan 
+    Hostname bluebear.bham.ac.uk 
+    Port 22 
+    ProxyCommand ssh -q -W %h:%p bham 
+Host bb2 
+    User jduan 
+    Hostname bb-pg-login02.bear.cluster 
+    Port 22 
+    ProxyCommand ssh -q -W %h:%p bb 
