@@ -52,7 +52,7 @@ ssh bb
 echo -e " if [[ \$(hostname -s) = bear* ]]; then\n \
 module purge; module load bluebear;\n \
 module load bear-apps/2019b &> /dev/null;\n \
-module load PyTorch/1.4.0-fosscuda-2019b-Python-3.7.4 &> /dev/null;\n \
+module load PyTorch/1.4.0-fosscuda-2019b-Python-3.7.4 IPython/7.9.0-fosscuda-2019b-Python-3.7.4 Qt5/5.13.1-GCCcore-8.3.0 &> /dev/null;\n \
 fi\n \
 " >> ~/.bashrc
 ```
@@ -62,6 +62,7 @@ echo -e " #!/bin/bash \\n \
 #SBATCH --job-name=duanj \\n \
 #SBATCH --qos bbpowergpu \\n \
 #SBATCH --gres gpu:v100:1 \\n \
+#SBATCH --cpus-per-task=20 \\n \
 #SBATCH --time=00:10:00 \\n \
 #SBATCH --mail-type ALL \\n \
 module purge; module load bluebear; \\n \
@@ -94,7 +95,7 @@ Note: The port `2020` can be modified in `jduan.sh`. Just change `sport`.
 ssh -L 2020:127.0.0.1:2020 -C -N bb2
 ```
 
-### Final step
+### Run on Pycharm
 
 **Cool!** Let's remote debug on Pycharm.
 
@@ -114,6 +115,11 @@ Copy `/rds/bear-apps/2019b/EL7-power9/software/Python/3.7.4-GCCcore-8.3.0/bin/py
 ![New Python](img/04_select_python.png)
 
 All done!
+
+### Run on Vs-code
+
+### Run on Spyder
+
 
 ## Declaration
 

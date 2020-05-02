@@ -13,6 +13,7 @@
 #SBATCH --job-name=duanj 
 #SBATCH --qos bbpowergpu 
 #SBATCH --gres gpu:v100:1 
+#SBATCH --cpus-per-task=20
 #SBATCH --time=00:10:00 
 #SBATCH --mail-type ALL 
 module purge; module load bluebear; 
