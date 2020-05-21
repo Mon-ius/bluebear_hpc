@@ -23,18 +23,21 @@ client="$HOME/.yarn/bin/code-server"
 
 getCodeSever () {
 
-    mkdir -p "$data_dir/extensions"
-    mkdir $work_dir && cd $work_dir
-    wget http://nodejs.org/dist/v14.3.0/node-v14.3.0-linux-ppc64le.tar.gz && tar -xvf ./*.tar.gz > /dev/null
-    cd $work_dir/node-v14.3.0-linux-ppc64le/bin
-    export PATH=$(pwd):$PATH
-    npm install -g yarn > /dev/null
-    yarn global add code-server > /dev/null
-
+mkdir -p "$data_dir/extensions"
+mkdir $work_dir && cd $work_dir
+wget http://nodejs.org/dist/v14.3.0/node-v14.3.0-linux-ppc64le.tar.gz && tar -xvf ./*.tar.gz > /dev/null
+cd $work_dir/node-v14.3.0-linux-ppc64le/bin
+export PATH=$(pwd):$PATH
+npm install -g yarn > /dev/null
+yarn global add code-server > /dev/null
 } 
 
-if [![ -d $work_dir ]]  || [![-f $client]]; then
-    getCodeSever()
+
+if  ! [ -d $work_dir ] ||  ! [ -f $client ] ; then
+    getCodeSever
+else
+    export PATH=$work_dir/node-v14.3.0-linux-ppc64le/bin:$PATH
+    >&1 echo -e '\033[1;32m'Success! '\033[0m' The code-sever already installed:'\033[4;34m'$client'\033[0m'
 fi
 
 port=8081
