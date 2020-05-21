@@ -120,7 +120,6 @@ All done!
 
 ### Run on Spyder
 
-
 ## Declaration
 
 ### Author

@@ -1,0 +1,16 @@
+BootStrap: docker
+From: ubuntu
+
+%post
+    apt-get -y update
+    apt-get -y install fortune cowsay lolcat
+
+%environment
+    export LC_ALL=C
+    export SINGULARITY_DOCKER_ARCHITECTURE=ppc64le
+
+%runscript
+    echo 2333
+
+%labels
+    Author monius
