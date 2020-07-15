@@ -16,6 +16,7 @@ module load git
 nvidia-smi 
 
 work_dir="$HOME/codeServer"
+project_dir="$HOME/_project"
 data_dir="$HOME/.local/share/bc_uob_codeserver"
 client="$HOME/.yarn/bin/code-server"
 
@@ -24,6 +25,7 @@ client="$HOME/.yarn/bin/code-server"
 getCodeSever () {
 
 mkdir -p "$data_dir/extensions"
+mkdir -p $project_dir
 mkdir $work_dir && cd $work_dir
 wget http://nodejs.org/dist/v14.3.0/node-v14.3.0-linux-ppc64le.tar.gz && tar -xvf ./*.tar.gz > /dev/null
 cd $work_dir/node-v14.3.0-linux-ppc64le/bin
@@ -48,6 +50,6 @@ $client \
     --disable-telemetry \
     --extra-extensions-dir="$data_dir/extensions" \
     --user-data-dir="$data_dir" \
-    "$work_dir"
+    "$project_dir"
 
 cat $HOME/.config/code-server/config.yaml
