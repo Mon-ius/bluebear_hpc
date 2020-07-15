@@ -118,8 +118,10 @@ All done!
 
 ### Run on Vs-code
 
-See [1.self modified code-server](https://github.com/Mon-ius/bluebear_hpc/blob/master/code-server-self-install.sh)
-    [2.bluebear code-server (recommend)](https://github.com/Mon-ius/bluebear_hpc/blob/master/code-server-self-install.sh)
+See two options below:
+
+- [1.self modified code-server](https://github.com/Mon-ius/bluebear_hpc/blob/master/code-server-self-install.sh)
+- [2.bluebear code-server (recommend)](https://github.com/Mon-ius/bluebear_hpc/blob/master/code-server-self-install.sh)
 
 ### Run on Spyder
 
