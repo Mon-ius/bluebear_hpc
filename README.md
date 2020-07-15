@@ -97,7 +97,9 @@ ssh -L 2020:127.0.0.1:2020 -C -N bb2
 
 ### Run on Pycharm
 
-**Cool!** Let's remote debug on Pycharm.
+<details>
+
+<summary>**Cool!** Let's remote debug on Pycharm.</summary>
 
 Open `Pycharm` and create a new project `bbpowergpu`.
 
@@ -115,6 +117,9 @@ Copy `/rds/bear-apps/2019b/EL7-power9/software/Python/3.7.4-GCCcore-8.3.0/bin/py
 ![New Python](img/04_select_python.png)
 
 All done!
+
+</details>
+
 
 ### Run on Vs-code
 
