@@ -96,11 +96,10 @@ ssh -L 2020:127.0.0.1:2020 -C -N bb2
 ```
 
 ### Run on Pycharm
-**Cool!**
 
 <details>
 
-<summary>Let's remote debug on Pycharm. <strong style="color: red; opacity: 0.50;"> Click here for details.</strong></summary>
+<summary> <strong>Cool!</strong> Let's remote debug on Pycharm. <strong style="color: red; opacity: 0.90;">Click here for details.</strong></summary>
 
 Open `Pycharm` and create a new project `bbpowergpu`.
 
