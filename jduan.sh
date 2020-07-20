@@ -20,6 +20,7 @@ module purge; module load bluebear;
 module load bear-apps/2019b; 
 module load PyTorch/1.4.0-fosscuda-2019b-Python-3.7.4; 
 module load IPython/7.9.0-fosscuda-2019b-Python-3.7.4; 
+module load BEAR-Python-DataScience/2019b-fosscuda-2019b-Python-3.7.4-ppc64le;
 export XDG_RUNTIME_DIR="" 
 port=8080 
 sport=2020 
