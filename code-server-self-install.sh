@@ -9,25 +9,26 @@
 
 module purge; module load bluebear;
 module load bear-apps/2019b;
-module load PyTorch/1.4.0-fosscuda-2019b-Python-3.7.4;
-module load IPython/7.9.0-fosscuda-2019b-Python-3.7.4;
 module load BEAR-Python-DataScience/2019b-fosscuda-2019b-Python-3.7.4-ppc64le;
 module load git;
 
 nvidia-smi 
 
-install_dir="$HOME/.local/codeServer"
-work_dir="$HOME/project-cs"
-data_dir="$HOME/.local/share/bc_uob_codeserver"
+port=8081
+version="v14.5.0"
+export PASSWORD=duanj
 client="$HOME/.yarn/bin/code-server"
+install_dir="$HOME/.local/node_js"
 
+work_dir="$HOME/projects"
+data_dir="$HOME/.vscode"
 # rm -rf $install_dir $HOME/.cache $HOME/.yarn* $HOME/.npm $HOME/.config
 
 getCodeSever () {
     mkdir -p "$data_dir/extensions"
     mkdir $install_dir && cd $install_dir
-    wget http://nodejs.org/dist/v14.3.0/node-v14.3.0-linux-ppc64le.tar.gz && tar -xvf ./*.tar.gz > /dev/null
-    cd $install_dir/node-v14.3.0-linux-ppc64le/bin
+    wget https://nodejs.org/dist/$version/node-$version-linux-ppc64le.tar.gz && tar -xvf ./*.tar.gz > /dev/null
+    cd $install_dir/node-$version-linux-ppc64le/bin
     export PATH=$(pwd):$PATH
     npm install -g yarn > /dev/null
     yarn global add code-server > /dev/null
@@ -37,15 +38,18 @@ if  ! [ -d $work_dir ]; then
     mkdir $work_dir
 fi
 
+if  ! [ -d $data_dir ]; then
+    mkdir $data_dir
+fi
+
 if  ! [ -d $install_dir ] ||  ! [ -f $client ] ; then
     getCodeSever
 else
-    export PATH=$install_dir/node-v14.3.0-linux-ppc64le/bin:$PATH
+    export PATH=$install_dir/node-$version-linux-ppc64le/bin:$PATH
     >&1 echo -e '\033[1;32m'Success! '\033[0m' The code-sever already installed:'\033[4;34m'$client'\033[0m'
 fi
 
-port=8081
-export PASSWORD=duanj
+# Noticed that the python plugin need to be downgraded to 2020.5.x
 $client \
     --auth=password \
     --port=$port \
