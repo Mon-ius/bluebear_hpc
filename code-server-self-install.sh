@@ -49,7 +49,7 @@ else
     >&1 echo -e '\033[1;32m'Success! '\033[0m' The code-sever already installed:'\033[4;34m'$client'\033[0m'
 fi
 
-# Noticed that the python plugin need to be downgraded to 2020.5.x
+# Noticed that the python plugin need to be downgraded to 2020.5.x, the 2020.6.x has bugs not yet fixed.
 $client \
     --auth=password \
     --port=$port \
