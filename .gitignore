@@ -128,3 +128,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 .DS_Store
+
+run_vs.sh
+run_vs_core.sh
+run_all.sbatch
+run_all_core.sh
